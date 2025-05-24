@@ -167,7 +167,6 @@ class PeftModel(torch.nn.Module):
 
     def disable_adapter_layers(self):
         self._set_adapter_layers(enabled=False)
- 
 
 
 def mark_lora_layernorm_cls_trainable(model: nn.Module, target_modules, bias: str = "lora_only", requires_full_weights_grad: bool = False) -> None:
