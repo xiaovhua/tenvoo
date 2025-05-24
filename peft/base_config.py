@@ -28,7 +28,6 @@ class PeftType(str, enum.Enum):
     LOCON = "LOCON"
     LOHA = "LOHA"
     LOKR = "LOKR"
-    OFT = "OFT"
     QUANTA = "QUANTA"
     TENVOO = "TENVOO"
 
