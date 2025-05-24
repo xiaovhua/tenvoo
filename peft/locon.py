@@ -52,8 +52,8 @@ class LoConModel(PeftModel):
     def get_new_linear_module(self, in_features, out_features, bias=True, **kwargs):
         return Linear(in_features, out_features, bias=bias, **kwargs)
 
-    def get_new_conv_module(self, in_channels, out_channels, kernel_size, stride=1, padding=0, bias=True, dilation=1, **kwargs):
-        return Conv3d(in_channels, out_channels, bias=bias, kernel_size=kernel_size, stride=stride, padding=padding, dilation=dilation, **kwargs)
+    def get_new_conv_module(self, in_channels, out_channels, kernel_size, stride=1, padding=0, bias=True, dilation=1, groups=1, **kwargs):
+        return Conv3d(in_channels, out_channels, bias=bias, kernel_size=kernel_size, stride=stride, padding=padding, dilation=dilation, groups=groups, **kwargs)
 
 
 class LoConLayer(PeftLayer):
@@ -87,7 +87,6 @@ class Linear(nn.Linear, LoConLayer):
         wa = self.lora_up.weight
         wb = self.lora_down.weight
         full_weights = wa.view(wa.size(0), -1) @ wb.view(wb.size(0), -1)
-        # print('** Linear **:', full_weights.shape, self.weight.shape)
         return self.scale * full_weights.view(self.weight.shape)
 
     def train(self, mode: bool = True):
@@ -118,11 +117,9 @@ class Conv3d(nn.Conv3d, LoConLayer):
     # LoCon implemented in a convolutional layer
     def __init__(self, in_channels: int, out_channels: int, bias: bool, kernel_size: int | list | tuple = 1,
                  stride: int | list | tuple = 1, padding: int | list | tuple = 1, dilation: int | tuple = 1,
-                 # groups: int = 1, 
-                 merge_weights: bool = False, rank: int = 4, alpha: float = 0.0,  **kwargs):
+                 groups: int = 1, merge_weights: bool = False, rank: int = 4, alpha: float = 0.0,  **kwargs):
 
-        # nn.Conv3d.__init__(self, in_channels, out_channels, kernel_size, stride=stride, padding=padding, dilation=dilation, groups=groups, bias=bias, **kwargs)
-        nn.Conv3d.__init__(self, in_channels, out_channels, kernel_size, stride=stride, padding=padding, dilation=dilation, bias=bias, **kwargs)
+        nn.Conv3d.__init__(self, in_channels, out_channels, kernel_size, stride=stride, padding=padding, dilation=dilation, groups=groups, bias=bias, **kwargs)
         nn.Conv3d.reset_parameters(self)
 
         LoConLayer.__init__(self, merge_weights=merge_weights)
