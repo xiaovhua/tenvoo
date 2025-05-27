@@ -1,7 +1,8 @@
 # Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks
 
-> 🎉 This repository contains the official implementation of our paper:  
-> **[Paper Title: XXX]**, accepted as an **Early Accept** to **MICCAI 2025**.
+> This repository contains the official implementation of our paper:  
+> **Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks**.
+> Congratulations 🎉🎉 Our work is early accepted by **MICCAI 2025** 🎉🎉
 
 ## 🔍 Introduction
 
