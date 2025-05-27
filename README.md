@@ -19,16 +19,9 @@ This repository provides the official implementation of **Tensor Volumetric Oper
 
 **Key highlights:**
 
-- 🧠 Introduced **tensor decomposition-based PEFT**, TenVOO, for 3D CNNs  
+- 🧠 Introduced tensor decomposition-based PEFT, TenVOO, for 3D CNNs  
 - 📦 Compatible with standard 3D backbones (e.g., 3D UNet)  
-- 🚀 Significant reduction in trainable parameters without compromising spatial understanding
-
-## 📄 Paper
-
-- **Title:** XXX  
-- **Authors:** [Author List]  
-- **Conference:** MICCAI 2025 (Early Accept)  
-- **[Link to Paper (arXiv or MICCAI site)](URL)**
+- 📄 Significant reduction in trainable parameters without compromising spatial understanding
 
 ## 📁 Repository Structure
 
