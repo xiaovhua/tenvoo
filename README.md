@@ -83,7 +83,7 @@ If you find this work useful, please consider citing our paper:
 
 ## 📬 Contact
 
-For questions or collaborations, please contact [s237857s@st.go.tuat.ac.jp] or [nkvhua@outlook.com].
+For questions or collaborations, please contact s237857s@st.go.tuat.ac.jp or nkvhua@outlook.com.
 
 ## 🙏 Acknowledgements
 
