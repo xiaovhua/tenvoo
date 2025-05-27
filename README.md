@@ -2,11 +2,11 @@
 
 #### This repository contains the official implementation of **"Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks"**.
 
-#### Congratulations 🎉🎉 Our work is early accepted by **MICCAI 2025** 🎉🎉
+#### Congratulations !! Our work is early accepted by **MICCAI 2025** 🎉🎉
 
 ## 🔍 Introduction
 
-This project provides the official PyTorch implementation of our MICCAI 2025 paper, where we introduce a novel method for Parameter-Efficient Fine-Tuning (PEFT) of 3D convolutional networks using **tensor networks**. Our approach enables efficient adaptation of large 3D models while maintaining strong performance across medical imaging tasks.
+This repository provides the official implementation of Tensor Volumetric Operator (TenVOO), a novel parameter-efficient fine-tuning (PEFT) method specifically designed for 3D convolutional networks. TenVOO enables efficient adaptation of large-scale 3D models while preserving spatial interactions, and demonstrates strong performance across various Magnetic Resonance Imaging (MRI) generation tasks.
 
 **Key highlights:**
 
