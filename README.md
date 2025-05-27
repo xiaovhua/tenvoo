@@ -87,5 +87,5 @@ For questions or collaborations, please contact s237857s@st.go.tuat.ac.jp or nkv
 
 ## 🙏 Acknowledgements
 
-We would like to thank [XXX](https://github.com/xxx/xxx) for their open-sourced code, which served as a valuable reference for this work.
+We would like to thank [QuanTA](https://github.com/quanta-fine-tuning/quanta) for their open-sourced code, which served as a valuable reference for this work.
 
