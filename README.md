@@ -31,7 +31,7 @@ This project provides the official PyTorch implementation of our MICCAI 2025 pap
 ├── utils/               # Utility functions
 ├── requirements.txt     # Python dependencies
 └── README.md            # Project description
-
+```
 
 ## 🚀 Getting Started
 
