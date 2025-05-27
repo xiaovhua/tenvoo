@@ -1,5 +1,14 @@
 # Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks
 
+<p align="center">
+  <a href="https://arxiv.org/abs/xxxx.xxxxx">
+    <img src="https://img.shields.io/badge/Paper-PDF-red?logo=adobeacrobatreader&style=for-the-badge" alt="paper"/>
+  </a>
+  <a href="https://github.com/your_username/your_repo">
+    <img src="https://img.shields.io/badge/Code-GitHub-blue?logo=github&style=for-the-badge" alt="code"/>
+  </a>
+</p>
+
 ### This repository contains the official implementation of **"Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks"**.
 
 ### Congratulations !! Our work is early accepted by **MICCAI 2025** 🎉🎉
