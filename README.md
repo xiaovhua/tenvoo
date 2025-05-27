@@ -81,3 +81,7 @@ year={2025}
 
 For questions or collaborations, please contact [your.email@example.com].
 
+## 🙏 Acknowledgements
+
+We would like to thank [XXX](https://github.com/xxx/xxx) for their open-sourced code, which served as a valuable reference for this work.
+
