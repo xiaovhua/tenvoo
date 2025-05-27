@@ -79,6 +79,7 @@ If you find this work useful, please consider citing our paper:
   booktitle={Proceedings of the MICCAI},
   year={2025}
 }
+```
 
 ## 📬 Contact
 
