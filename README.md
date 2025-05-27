@@ -72,13 +72,13 @@ python scripts/train.py --config configs/your_config.yaml
 
 If you find this work useful, please consider citing our paper:
 
+```bibtex
 @inproceedings{yourbibtex2025,
-title={XXX},
-author={Author1, A. and Author2, B. and Author3, C.},
-booktitle={Medical Image Computing and Computer-Assisted Intervention (MICCAI)},
-year={2025}
+  title={Your Paper Title},
+  author={Author1, A. and Author2, B. and Author3, C.},
+  booktitle={Proceedings of the MICCAI},
+  year={2025}
 }
-
 
 ## 📬 Contact
 
