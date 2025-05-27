@@ -31,3 +31,53 @@ This project provides the official PyTorch implementation of our MICCAI 2025 pap
 ├── utils/               # Utility functions
 ├── requirements.txt     # Python dependencies
 └── README.md            # Project description
+
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+git clone https://github.com/your_username/XXX.git
+cd XXX
+
+
+### 2. Set up environment
+
+conda create -n xxx_env python=3.10
+conda activate xxx_env
+pip install -r requirements.txt
+
+
+### 3. Prepare data
+
+Instructions for preparing your dataset go here.
+
+### 4. Train the model
+
+python scripts/train.py --config configs/your_config.yaml
+
+
+
+## 📊 Results
+
+| Dataset | Method | Params (M) | Dice Score (%) |
+|---------|--------|------------|----------------|
+| Task A  | Ours   | 2.3        | 89.7           |
+| Task B  | Ours   | 3.1        | 91.2           |
+
+## 🤝 Citation
+
+If you find this work useful, please consider citing our paper:
+
+@inproceedings{yourbibtex2025,
+title={XXX},
+author={Author1, A. and Author2, B. and Author3, C.},
+booktitle={Medical Image Computing and Computer-Assisted Intervention (MICCAI)},
+year={2025}
+}
+
+
+## 📬 Contact
+
+For questions or collaborations, please contact [your.email@example.com].
+
