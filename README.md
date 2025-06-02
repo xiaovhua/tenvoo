@@ -80,9 +80,11 @@ Please make sure to specify the correct ```unet_ckpt``` path when fine-tuning or
 ## 🎓 Tutorial & Quick Start
 
 **Tutorial**
+
 You can follow our example from [`./toy.ipynb`](./toy.ipynb), to understand how to fine-tune your pre-trained 3D model with the TenVOO framework.
 
 **Quick Start**
+
 You can easily apply TenVOO to your own 3D models with just a few lines of code:
 
 ```python
