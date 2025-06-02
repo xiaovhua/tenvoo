@@ -16,6 +16,6 @@ Also, if you run eval.py, please download Med3D-resnet50 from https://github.com
 
 
 
-## 3. quick start
+## 3. Tutorial and Quick Start
 
 
