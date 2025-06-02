@@ -4,10 +4,18 @@ export CUDA_VISIBLE_DEVICES=0
 ###################################### dataset settings ######################################
 dataset_name=adni
 dataset=/path/to/adni/
+resolution="[(160,224,160)]"
+scale=1
+
 # dataset_name=brats
 # dataset=/path/to/brats/
+# resolution="[(192,192,144)]"
+# scale=1.5
+
 # dataset_name=ppmi
 # dataset=/path/to/ppmi/
+# resolution="[(160,224,160)]"
+# scale=1
 
 ###################################### output settings ######################################
 output=./results/
@@ -38,6 +46,8 @@ loss_mode=mse
 python ft_ddpm.py \
   --dataset_name $dataset_name \
   --dataset_root $dataset \
+  --mri_resolution $resolution \
+  --scale_ratio $scale \
   --output_dir $output \
   --unet_ckpt $unet_ckpt \
   -r $rank \
