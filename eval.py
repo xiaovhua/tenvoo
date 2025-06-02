@@ -333,7 +333,6 @@ if __name__ == '__main__':
     args.device = device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     if not os.path.exists(args.output_dir):
         os.mkdir(args.output_dir)
-    args.model_mode = args.ft_mode.replace('_', '-').split('-')[-1]
     ### To use the same testing samples, please use the same random seed as during training ###
     seed_everything(args.seed)
 
@@ -408,6 +407,7 @@ if __name__ == '__main__':
             unet = LohaModel(config, unet).to(device)
         if args.ft_mode == 'tenvoo-l' or args.ft_mode == 'tenvoo-q':
             D = 3  # for Linear, only 3 are supported now
+            model_mode = args.ft_mode.replace('_', '-').split('-')[-1]
             config = TenVOOConfig(
                 d_in=D, d_out=D, per_dim_list=TENVOO_LIST, merge_weights=True, target_modules=target_modules, sum_mode=False, dropout=0.0, rank=args.rank
             )
