@@ -57,8 +57,7 @@ if __name__ == '__main__':
     args.use_amp = args.use_amp == 1
     args.joint = args.joint == 1
     args.mri_resolution = ast.literal_eval(args.mri_resolution)[0]
-    splits = args.ft_mode.replace('_', '-').split('-')
-    args.ft_mode, args.model_mode = splits[0], splits[-1]
+    args.model_mode = args.ft_mode.replace('_', '-').split('-')[-1]
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     args.output_dir = os.path.join(args.output_dir,  f'{args.dataset_name}-{args.ft_mode}')
     if not os.path.exists(args.output_dir):
