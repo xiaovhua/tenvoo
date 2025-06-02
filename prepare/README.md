@@ -6,7 +6,7 @@
 - PyTorch 2.2.0  
 - CUDA 12.1  
 
-### Required Dependencies
+**Required Dependencies:**
 
 To install the required dependencies for TenVOO, please run:
 
