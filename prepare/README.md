@@ -29,7 +29,7 @@ Please apply for access and download the datasets from their official websites i
 
 ---
 
-### 🧹 Preprocessing
+### Preprocessing
 
 - **UK Biobank**: We use the officially preprocessed T1-weighted MRI images, already registered to the MNI template.
 
