@@ -1,0 +1,7 @@
+monai
+monai-generative
+tqdm
+nibabel
+opt_einsum
+transformers
+huggingface_hub
