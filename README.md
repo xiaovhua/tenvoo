@@ -78,22 +78,33 @@ bash scripts/run_eval.sh
 Please make sure to specify the correct ```unet_ckpt``` path when fine-tuning or evaluating your model.
 
 ## 🎓 Tutorial & Quick Start
+
+**Tutorial**
 You can follow our example from [`./toy.ipynb`](./toy.ipynb), to understand how to fine-tune your pre-trained 3D model with the TenVOO framework.
 
-#### Also, you can easily apply TenVOO to your own 3D models or datasets with just a few lines of code:
+**Quick Start**
+You can easily apply TenVOO to your own 3D models with just a few lines of code:
 
 ```python
-from tenvoo import TenVOO, get_default_config
+from peft import TenVOOConfig, TenVOOModel, TENVOO_LIST
 
-# Load pretrained model and wrap it with TenVOO
-config = get_default_config(task="segmentation", backbone="unet3d")
-tenvoo_model = TenVOO(config=config, pretrained="path/to/your_pretrained_model.pth")
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') 
+unet = your_own_unet
 
-# Fine-tune on your custom dataset
-tenvoo_model.train(dataset="path/to/your/training_data")
+# 1. Wrap your unet with TenVOO
+target_modules =  # layer names which you want to wrap
+config = TenVOOConfig(d_in=3, d_out=3, per_dim_list=TENVOO_LIST, target_modules=target_modules, model_mode='l', rank=4)
+unet = TenVOOModel(config, unet).to(device)
 
-# Run inference or evaluation
-tenvoo_model.evaluate(dataset="path/to/your/validation_data")
+# 2. When training, set unet.train()
+for e in range(epochs):
+    unet.train()
+    ...
+
+# 3. When inference, set unet.eval()
+unet.eval()
+...
+
 ```
 
 ## 📊 Results
