@@ -20,12 +20,12 @@ pip install -r requirements.txt
 
 We use the following datasets for training and evaluation:
 
-- [UK Biobank](https://www.ukbiobank.ac.uk/) – used for pretraining.
-- [BraTS 2021](https://www.med.upenn.edu/cbica/brats2021/) – used for fine-tuning and evaluation.
-- [ADNI](https://adni.loni.usc.edu/) – used for fine-tuning and evaluation.
-- [PPMI](https://www.ppmi-info.org/) – used for fine-tuning and evaluation.
+- [UK Biobank](https://www.ukbiobank.ac.uk/) – pretraining.
+- [BraTS 2021](https://www.med.upenn.edu/cbica/brats2021/) – fine-tuning and evaluation.
+- [ADNI](https://adni.loni.usc.edu/) – fine-tuning and evaluation.
+- [PPMI](https://www.ppmi-info.org/) – fine-tuning and evaluation.
 
-> ⚠️ Please apply for access and download the datasets from their official websites if needed.
+Please apply for access and download the datasets from their official websites if needed.
 
 ---
 
