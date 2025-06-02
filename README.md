@@ -48,19 +48,23 @@ git clone https://github.com/TUAT-Novice/tenvoo.git
 
 cd tenvoo/
 
-### 2. Set up environment
+### 2. Set up environment & Prepare data
 
 Please refer to [`./prepare`](./prepare)
 
-### 3. Prepare data
+### 3. Train the model
 
-Instructions for preparing your dataset go here.
+To train you MONAI DDPM, you can modify the config in  [`./scripts/run_pretrain_ddpm.sh`](./scripts/run_pretrain_ddpm.sh), then run:
 
-### 4. Train the model
+python scripts/run_pretrain_ddpm.sh
 
-python scripts/train.py --config configs/your_config.yaml
+To fine-tune based on a pre-trained DDPM, please modify the config in  [`./scripts/run_ft_ddpm.sh`](./scripts/run_ft_ddpm.sh), then run:
 
+python scripts/run_ft_ddpm.sh
 
+To evaluate the DDPM, please modify the config in  [`./scripts/run_eval.sh`](./scripts/run_eval.sh), then run:
+
+python scripts/run_eval.sh
 
 ## 📊 Results
 
