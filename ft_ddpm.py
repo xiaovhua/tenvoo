@@ -122,7 +122,7 @@ if __name__ == '__main__':
                 requires_full_weights_grad=args.joint, exclude_first_last_conv=True
             )
             unet = LohaModel(config, unet).to(device)
-        if args.ft_mode == 'tenvoo':
+        if args.ft_mode == 'tenvoo-l' or args.ft_mode == 'tenvoo-q':
             D = 3  # for Linear, only 3 are supported now
             config = TenVOOConfig(
                 d_in=D, d_out=D, per_dim_list=TENVOO_LIST, merge_weights=True, target_modules=target_modules,
