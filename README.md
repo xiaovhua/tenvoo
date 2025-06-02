@@ -94,6 +94,7 @@ tenvoo_model.train(dataset="path/to/your/training_data")
 
 # Run inference or evaluation
 tenvoo_model.evaluate(dataset="path/to/your/validation_data")
+```
 
 ## 📊 Results
 
