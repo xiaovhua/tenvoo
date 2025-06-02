@@ -70,7 +70,7 @@ The final output should match the directory organized as follows:
 │   └── ...
 ```
 
-If your data structure is different, you can modify the `GLOB_PATHS` variable in [`./dataset.py`](../dataset.py) to match your custom layout.
+If your data structure is different, you can modify the `GLOB_PATHS` variable in [`./dataset.py`](../dataset.py) to match your local layout.
 
 
 
