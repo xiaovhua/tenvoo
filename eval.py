@@ -333,8 +333,7 @@ if __name__ == '__main__':
     args.device = device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     if not os.path.exists(args.output_dir):
         os.mkdir(args.output_dir)
-    splits = args.ft_mode.replace('_', '-').split('-')
-    args.ft_mode, args.model_mode = splits[0], splits[-1]
+    args.model_mode = args.ft_mode.replace('_', '-').split('-')[-1]
     ### To use the same testing samples, please use the same random seed as during training ###
     seed_everything(args.seed)
 
