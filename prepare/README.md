@@ -8,7 +8,7 @@
 
 ### Required Dependencies
 
-To install the required dependencies for TenVOO, Please run:
+To install the required dependencies for TenVOO, please run:
 
 ```bash
 pip install -r requirements.txt
