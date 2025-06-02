@@ -45,15 +45,12 @@ This repository provides the official implementation of **Tensor Volumetric Oper
 ### 1. Clone the repository
 
 git clone https://github.com/TUAT-Novice/tenvoo.git
-cd tenvoo/
 
+cd tenvoo/
 
 ### 2. Set up environment
 
-conda create -n xxx_env python=3.10
-conda activate xxx_env
-pip install -r requirements.txt
-
+Please refer to [`./prepare`](./prepare)
 
 ### 3. Prepare data
 
