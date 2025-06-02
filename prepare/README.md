@@ -52,13 +52,11 @@ Please apply for access and download the datasets from their official websites i
 | Row 6, Col 1   | Row 6, Col 2   |
 | Row 7, Col 1   | Row 7, Col 2   |
 
-The final output should match the directory format shown below.
-
 ---
 
 ### Data Directory Structure
 
-The dataset should be organized as follows:
+The final output should match the directory organized as follows:
 
 ```bash
 /your_dataset_root/
