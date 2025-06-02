@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 ## 2. Data Preparation
 
-We use [UK Biobank](https://github.com/quanta-fine-tuning/quanta) for pretraining, and [BraTS2021](https://github.com/quanta-fine-tuning/quanta), [ADNI](https://github.com/quanta-fine-tuning/quanta), [PPMI](https://github.com/quanta-fine-tuning/quanta) for fine-tuning and evaluation.
+We use [UK Biobank]([https://github.com/quanta-fine-tuning/quanta](https://www.ukbiobank.ac.uk/)) for pretraining, and [BraTS2021](https://www.med.upenn.edu/cbica/brats2021/), [ADNI](https://adni.loni.usc.edu/), [PPMI](https://www.ppmi-info.org/) for fine-tuning and evaluation.
 
 
 /your_dataset_root/
