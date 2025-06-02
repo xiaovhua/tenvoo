@@ -35,7 +35,9 @@ Please apply for access and download the datasets from their official websites i
 
 - **BraTS 2021**: We use the raw T1-weighted images. A filtered list of valid samples is provided in [`./prepare/clean_brats.txt`](./clean_brats.txt).
 
-- **ADNI & PPMI**: Please follow your own preprocessing pipeline (e.g., skull stripping, MNI registration). The final output should match the directory format shown below.
+- **ADNI & PPMI**: Please follow your own preprocessing pipeline (e.g., skull stripping, MNI registration).
+
+The final output should match the directory format shown below.
 
 ---
 
