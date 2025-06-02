@@ -14,8 +14,8 @@ dataset=/path/to/adni/
 output=./results/
 
 ###################################### model settings ######################################
-unet_ckpt=./path/to/fine-tuned/ddpm_unet
-med3d_ckpt=./path/to/med3d_resnet50
+unet_ckpt=./path/to/fine-tuned/ddpm_unet.pth
+med3d_ckpt=./path/to/med3d_resnet50.pth
 
 ###################################### peft settings ######################################
 # # select from (ff, lora or locon, lokr, loha, tenvoo-l, tenvoo-q)
