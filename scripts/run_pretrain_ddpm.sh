@@ -25,7 +25,7 @@ loss_mode=mse
 
 python pretrain_ddpm.py \
   --dataset_name $dataset_name \
-  --dataset_root $dataset \
+  --dataset_root $dataset_root \
   --mri_resolution $resolution \
   --scale_ratio $scale \
   --output_dir $output \
