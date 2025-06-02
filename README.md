@@ -27,13 +27,17 @@ This repository provides the official implementation of **Tensor Volumetric Oper
 
 ```bash
 .
-├── models/              # 3D CNN backbones and tensor network modules
-├── configs/             # YAML configuration files for training/evaluation
-├── data/                # Dataset handling and preprocessing
-├── scripts/             # Training and evaluation scripts
-├── utils/               # Utility functions
-├── requirements.txt     # Python dependencies
-└── README.md            # Project description
+├── prepare/              # Details for environment setup and data preparation
+├── peft/                 # PEFT codes for fine-tuning
+├── scripts/              # Training and evaluation scripts
+├── dataset.py            # Define Dataset and DataLoader class
+├── ddpm_unet.py          # Define the MONAI DDPM model
+├── pretrain_ddpm.py      # Code for pretraining DDPM
+├── ft_ddpm.py            # Code for fine-tuning DDPM
+├── eval.py               # Code for model evaluation
+├── utils.py              # Utilities
+├── med3d.py              # Define the Med3D, only for eval.py
+└── README.md             # Project description
 ```
 
 ## 🚀 Getting Started
