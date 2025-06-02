@@ -76,6 +76,7 @@ bash scripts/run_eval.sh
 
 Please make sure to specify the correct ```unet_ckpt``` path when fine-tuning or evaluating your model.
 
+## 🎓 Tutorial
 
 ## 📊 Results
 
