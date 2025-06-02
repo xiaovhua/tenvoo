@@ -45,6 +45,7 @@ The final output should match the directory format shown below.
 
 The dataset should be organized as follows:
 
+```bash
 /your_dataset_root/
 ├── train/
 │   ├── subject_01/
@@ -54,7 +55,7 @@ The dataset should be organized as follows:
 │   ├── subject_XX/
 │   │   └── T1_brain_to_MNI.nii.gz
 │   └── ...
-
+```
 
 Each subject folder should contain one NIfTI file named `T1_brain_to_MNI.nii.gz`.
 
