@@ -44,9 +44,10 @@ This repository provides the official implementation of **Tensor Volumetric Oper
 
 ### 1. Clone the repository
 
+```bash
 git clone https://github.com/TUAT-Novice/tenvoo.git
-
 cd tenvoo/
+```
 
 ### 2. Set up environment & Prepare data
 
