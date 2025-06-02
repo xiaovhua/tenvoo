@@ -1,12 +1,12 @@
 ## 1. Environment Setup
 
-**Our Environment:**
+### Our Environment
 
 - Python 3.11  
 - PyTorch 2.2.0  
 - CUDA 12.1  
 
-**Required Dependencies:**
+### Required Dependencies
 
 To install the required dependencies for TenVOO, please run:
 
@@ -16,7 +16,33 @@ pip install -r requirements.txt
 
 ## 2. Data Preparation
 
-We use [UK Biobank](https://www.ukbiobank.ac.uk/) for pretraining, and [BraTS2021](https://www.med.upenn.edu/cbica/brats2021/), [ADNI](https://adni.loni.usc.edu/), [PPMI](https://www.ppmi-info.org/) for fine-tuning and evaluation.
+### 📥 Download
+
+We use the following datasets for training and evaluation:
+
+- [UK Biobank](https://www.ukbiobank.ac.uk/) – used for pretraining.
+- [BraTS 2021](https://www.med.upenn.edu/cbica/brats2021/) – used for fine-tuning and evaluation.
+- [ADNI](https://adni.loni.usc.edu/) – used for fine-tuning and evaluation.
+- [PPMI](https://www.ppmi-info.org/) – used for fine-tuning and evaluation.
+
+> ⚠️ Please apply for access and download the datasets from their official websites if needed.
+
+---
+
+### 🧹 Preprocessing
+
+- **UK Biobank**: We use the officially preprocessed T1-weighted MRI images, already registered to the MNI template.
+
+- **BraTS 2021**: We use the raw T1-weighted images. A filtered list of valid samples is provided in [`./prepare/clean_brats.txt`](./prepare/clean_brats.txt).
+
+- **ADNI & PPMI**: Please follow your own preprocessing pipeline (e.g., skull stripping, MNI registration). The final output should match the directory format shown below.
+
+---
+
+### 🗂️ Data Directory Structure
+
+The dataset should be organized as follows:
+
 
 
 /your_dataset_root/
@@ -28,6 +54,11 @@ We use [UK Biobank](https://www.ukbiobank.ac.uk/) for pretraining, and [BraTS202
 │   ├── subject_XX/
 │   │   └── T1_brain_to_MNI.nii.gz
 │   └── ...
+
+
+Each subject folder should contain one NIfTI file named `T1_brain_to_MNI.nii.gz`.
+
+> 🔧 If your data structure is different, you can modify the `GLOB_PATHS` variable in [`dataset.py`](./dataset.py) to match your custom layout.
 
 
 
