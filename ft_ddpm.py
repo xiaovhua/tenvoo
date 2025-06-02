@@ -69,7 +69,7 @@ if __name__ == '__main__':
             with open(os.path.join(args.dataset_root, 'clean_brats.txt'), 'r', encoding='utf-8') as fr:
                 clean_files = [f.strip() for f in fr.readlines()]
         args.dataset_root = os.path.join(args.dataset_root, *GLOB_PATHS[args.dataset_name])
-        mir_list = [r for r in glob.glob(args.dataset_root) if r.split('/')[-1] in clean_files]
+        mir_list = [r for r in glob.glob(args.dataset_root) if r.replace('\\', '/').split('/')[-1] in clean_files]
         dataset = DDPMDataset(root=mir_list, transform=default_transform(spatial_size=args.mri_resolution, scale_ratio=args.scale_ratio))
     else:
         args.dataset_root = os.path.join(args.dataset_root, *GLOB_PATHS[args.dataset_name])
