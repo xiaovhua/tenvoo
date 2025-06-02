@@ -57,7 +57,6 @@ if __name__ == '__main__':
     args.use_amp = args.use_amp == 1
     args.joint = args.joint == 1
     args.mri_resolution = ast.literal_eval(args.mri_resolution)[0]
-    args.model_mode = args.ft_mode.replace('_', '-').split('-')[-1]
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     args.output_dir = os.path.join(args.output_dir,  f'{args.dataset_name}-{args.ft_mode}')
     if not os.path.exists(args.output_dir):
@@ -124,9 +123,10 @@ if __name__ == '__main__':
             unet = LohaModel(config, unet).to(device)
         if args.ft_mode == 'tenvoo-l' or args.ft_mode == 'tenvoo-q':
             D = 3  # for Linear, only 3 are supported now
+            model_mode = args.ft_mode.split('-')[-1]
             config = TenVOOConfig(
                 d_in=D, d_out=D, per_dim_list=TENVOO_LIST, merge_weights=True, target_modules=target_modules,
-                model_mode=args.model_mode, initialize_mode=args.initialize_mode,
+                model_mode=model_mode, initialize_mode=args.initialize_mode,
                 sum_mode=False, bias=args.peft_bias, dropout=0.0, rank=args.rank, requires_full_weights_grad=args.joint,
                 exclude_first_last_conv=True
             )
