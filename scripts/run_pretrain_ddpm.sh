@@ -11,7 +11,7 @@ scale=1
 output=./results/ddpm
 
 ###################################### model settings ######################################
-# unet_ckpt=./path/to/initialized/ddpm/unet # (optional)
+# unet_ckpt=./path/to/initialized/ddpm_unet.pth # (optional)
 ddpm_steps=1000
 
 ###################################### training settings ######################################
