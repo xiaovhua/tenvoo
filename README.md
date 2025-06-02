@@ -37,6 +37,7 @@ This repository provides the official implementation of **Tensor Volumetric Oper
 ├── eval.py               # Code for model evaluation
 ├── utils.py              # Utilities
 ├── med3d.py              # Define the Med3D, only for eval.py
+├── toy.ipynb             # A simple tutorial on how to fine-tune Conv3D using our TenVOO framework
 └── README.md             # Project description
 ```
 
