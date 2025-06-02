@@ -57,9 +57,7 @@ The dataset should be organized as follows:
 │   └── ...
 ```
 
-Each subject folder should contain one NIfTI file named `T1_brain_to_MNI.nii.gz`.
-
-> 🔧 If your data structure is different, you can modify the `GLOB_PATHS` variable in [`dataset.py`](./dataset.py) to match your custom layout.
+If your data structure is different, you can modify the `GLOB_PATHS` variable in [`./dataset.py`](../dataset.py) to match your custom layout.
 
 
 
