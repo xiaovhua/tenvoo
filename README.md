@@ -56,15 +56,21 @@ Please refer to [`./prepare`](./prepare)
 
 To train you MONAI DDPM, you can modify the config in  [`./scripts/run_pretrain_ddpm.sh`](./scripts/run_pretrain_ddpm.sh), then run:
 
+```bash
 python scripts/run_pretrain_ddpm.sh
+```
 
 To fine-tune based on a pre-trained DDPM, please modify the config in  [`./scripts/run_ft_ddpm.sh`](./scripts/run_ft_ddpm.sh), then run:
 
+```bash
 python scripts/run_ft_ddpm.sh
+```
 
 To evaluate the DDPM, please modify the config in  [`./scripts/run_eval.sh`](./scripts/run_eval.sh), then run:
 
+```bash
 python scripts/run_eval.sh
+```
 
 ## 📊 Results
 
