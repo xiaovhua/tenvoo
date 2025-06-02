@@ -14,7 +14,7 @@ output=./results/
 
 ###################################### model settings ######################################
 ddpm_steps=1000
-unet_ckpt=./path/to/pretrained/ddpm_unet
+unet_ckpt=./path/to/pretrained/ddpm_unet.pth
 
 ###################################### peft settings ######################################
 # # select from (ff, lora or locon, lokr, loha, tenvoo-l, tenvoo-q)
