@@ -13,6 +13,11 @@ To install the required dependencies for TenVOO, please run:
 ```bash
 pip install -r requirements.txt
 ```
+or
+
+```bash
+pip install -r prepare/requirements.txt
+```
 
 ## 2. Data Preparation
 
