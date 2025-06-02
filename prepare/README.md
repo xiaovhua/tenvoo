@@ -1,23 +1,18 @@
 ## 1. Environment Setup
 
-**Required Environment:**
+**Our Environment:**
 
 - Python 3.11  
 - PyTorch 2.2.0  
 - CUDA 12.1  
 
-### Step 1: Install PyTorch
+### Required Dependencies
 
-Please install PyTorch manually based on your system and GPU configuration using the official guide:  
-👉 https://pytorch.org/get-started/locally/
-
-### Step 2: Install Python dependencies
-
-Once PyTorch is installed, run:
+To install the required dependencies for TenVOO, Please run:
 
 ```bash
 pip install -r requirements.txt
-
+```
 
 ## 2. Data Preparation
 /your_dataset_root/
