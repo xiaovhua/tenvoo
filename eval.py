@@ -409,7 +409,7 @@ if __name__ == '__main__':
             D = 3  # for Linear, only 3 are supported now
             model_mode = args.ft_mode.replace('_', '-').split('-')[-1]
             config = TenVOOConfig(
-                d_in=D, d_out=D, per_dim_list=TENVOO_LIST, merge_weights=True, target_modules=target_modules, sum_mode=False, dropout=0.0, rank=args.rank
+                d_in=D, d_out=D, per_dim_list=TENVOO_LIST, merge_weights=True, target_modules=target_modules, sum_mode=False, dropout=0.0, rank=args.rank, model_mode=model_mode
             )
             unet = TenVOOModel(config, unet).to(device)
         for n, p in unet.named_parameters():
