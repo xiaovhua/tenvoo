@@ -40,13 +40,23 @@ Please apply for access and download the datasets from their official websites i
 
 - **BraTS 2021**: We use the raw T1-weighted images. A filtered list of valid samples is provided in [`./prepare/clean_brats.txt`](./clean_brats.txt).
 
-- **ADNI & PPMI**: 
+- **ADNI & PPMI**: We pre-process the T1-weighted images from ADNI and PPMI following the steps below.
+
+| Tool       | Step       |
+|----------------|----------------|
+| Row 1, Col 1   | Row 1, Col 2   |
+| Row 2, Col 1   | Row 2, Col 2   |
+| Row 3, Col 1   | Row 3, Col 2   |
+| Row 4, Col 1   | Row 4, Col 2   |
+| Row 5, Col 1   | Row 5, Col 2   |
+| Row 6, Col 1   | Row 6, Col 2   |
+| Row 7, Col 1   | Row 7, Col 2   |
 
 The final output should match the directory format shown below.
 
 ---
 
-### 🗂️ Data Directory Structure
+### Data Directory Structure
 
 The dataset should be organized as follows:
 
@@ -63,7 +73,6 @@ The dataset should be organized as follows:
 ```
 
 If your data structure is different, you can modify the `GLOB_PATHS` variable in [`./dataset.py`](../dataset.py) to match your custom layout.
-
 
 
 
