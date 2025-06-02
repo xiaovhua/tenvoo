@@ -4,7 +4,7 @@ export CUDA_VISIBLE_DEVICES=0
 ###################################### dataset settings ######################################
 dataset_name=ukb
 dataset_root=/path/to/ukb/t1/dataset
-resolution=[(160,224,160)]
+resolution="[(160,224,160)]"
 scale=1
 
 ###################################### output settings ######################################
