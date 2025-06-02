@@ -7,7 +7,7 @@ GLOB_PATHS = {
     'ukb': ['*', '*', '*', 'T1_brain_to_MNI.nii.gz'],
     'brats': ['*', '*', '*', '*t1.nii.gz'],
     'adni': ['*', '*', '*', '*', '*.nii'],
-    'brats': ['*', '*', '*.nii'],
+    'ppmi': ['*', '*', '*.nii'],
 }
 
 
