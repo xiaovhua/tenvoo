@@ -86,24 +86,41 @@ You can follow our example from [`./toy.ipynb`](./toy.ipynb), to understand how 
 You can easily apply TenVOO to your own 3D models with just a few lines of code:
 
 ```python
+import torch
 from peft import TenVOOConfig, TenVOOModel, TENVOO_LIST
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') 
-unet = your_own_unet
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-# 1. Wrap your unet with TenVOO
-target_modules =  # layer names which you want to wrap
-config = TenVOOConfig(d_in=3, d_out=3, per_dim_list=TENVOO_LIST, target_modules=target_modules, model_mode='l', rank=4)
+# 1. Your base model (must be a compatible 3D model, e.g., UNet3D)
+unet = your_own_unet  # Replace with your UNet model instance
+
+# 2. Define which layers to wrap with TenVOO (e.g., ["down.0.conv", "up.2.conv"])
+target_modules = ["layer1", "layer2"]  # Replace with actual layer names in your model
+
+# 3. Create TenVOO config and wrap the model
+config = TenVOOConfig(
+    d_in=3,                          # How many dimension decomposed from input dimension (e.g., 1024=16*8*8)
+    d_out=3,                         # How many dimension decomposed from output dimension (e.g., 128=8*4*4)
+    per_dim_list=TENVOO_LIST,        # A list of per-dimension options (we set TENVOO_LIST as default)
+    target_modules=target_modules,
+    model_mode='l',                  # TenVOO-L (l) or TenVOO-Q (q)
+    rank=4                           # LoRA rank (adjust as needed)
+)
 unet = TenVOOModel(config, unet).to(device)
 
-# 2. When training, set unet.train()
-for e in range(epochs):
+# 4. Training loop. You have to set unet.train()
+for epoch in range(epochs):
     unet.train()
-    ...
+    for batch in train_loader:
+        ...
+        loss.backward()
+        optimizer.step()
 
-# 3. When inference, set unet.eval()
+# 5. Inference. You have to set unet.eval()
 unet.eval()
-...
+with torch.no_grad():
+    for batch in val_loader:
+        ...
 
 ```
 
