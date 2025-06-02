@@ -38,7 +38,7 @@ Please apply for access and download the datasets from their official websites i
 
 - **UK Biobank**: We use the officially preprocessed T1-weighted MRI images, already registered to the MNI template.
 
-- **BraTS 2021**: We use the raw T1-weighted images. A filtered list of valid samples is provided in [`./prepare/clean_brats.txt`](./clean_brats.txt). If needed, you can put the txt file into the root path of BraTS2021.
+- **BraTS 2021**: We use the raw T1-weighted images. A filtered list of valid samples is provided in [`./prepare/clean_brats.txt`](./clean_brats.txt). If needed, you can put this txt file into the root path of BraTS2021.
 
 - **ADNI & PPMI**: We pre-process the T1-weighted images from ADNI and PPMI following the steps below.
 
