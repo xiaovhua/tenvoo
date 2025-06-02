@@ -74,6 +74,9 @@ To evaluate the DDPM, please modify the config in  [`./scripts/run_eval.sh`](./s
 bash scripts/run_eval.sh
 ```
 
+Please make sure to specify the correct ```unet_ckpt``` path when fine-tuning or evaluating your model.
+
+
 ## 📊 Results
 
 | Dataset | Method | Params (M) | Dice Score (%) |
