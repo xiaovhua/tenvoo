@@ -5,7 +5,7 @@ from torch.utils.data import Dataset
 
 GLOB_PATHS = {
     'ukb': ['*', '*', '*', 'T1_brain_to_MNI.nii.gz'],
-    'brats': ['*', '*', '*', '*t1.nii.gz'],
+    'brats': ['*', '*t1.nii.gz'],
     'adni': ['*', '*', '*', '*', '*.nii'],
     'ppmi': ['*', '*', '*.nii'],
 }
