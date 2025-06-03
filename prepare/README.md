@@ -59,17 +59,3 @@ Please apply for access and download the datasets from their official websites i
 The final output should match the directory organized in [`./dataset.py`](../dataset.py).
 
 If your data structure is different, you can modify the `GLOB_PATHS` variable in [`./dataset.py`](../dataset.py) to match your local layout.
-
-## 3. Tutorial and Quick Start
-### Training
-To start training, run:
-python pretrain_ddpm.py --config configs/your_config.yaml
-### Inference / Generation
-To generate MRI samples:
-python generate.py --config configs/your_config.yaml --ckpt path/to/your_model.ckpt
-
-git clone https://github.com/josipd/torch-two-sample.git
-cd torch-two-sample
-pip install .
-### Run Evaluation
-python eval.py --config configs/your_config.yaml
