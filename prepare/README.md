@@ -56,23 +56,9 @@ Please apply for access and download the datasets from their official websites i
 
 ### 🗂️ Data Directory Structure
 
-The final output should match the directory organized as follows:
-
-```bash
-/your_dataset_root/
-├── train/
-│   ├── subject_01/
-│   │   └── T1_brain_to_MNI.nii.gz
-│   └── ...
-├── val/
-│   ├── subject_XX/
-│   │   └── T1_brain_to_MNI.nii.gz
-│   └── ...
-```
+The final output should match the directory organized in [`./dataset.py`](../dataset.py).
 
 If your data structure is different, you can modify the `GLOB_PATHS` variable in [`./dataset.py`](../dataset.py) to match your local layout.
-
-
 
 ## 3. Tutorial and Quick Start
 ### Training
