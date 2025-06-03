@@ -97,7 +97,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 unet = your_own_unet  # Replace with your UNet model instance
 
 # 2. Define which layers to wrap with TenVOO (e.g., ["down.0.conv", "up.2.conv"])
-target_modules = ["layer1", "layer2"]  # Replace with actual layer names in your model
+target_modules = [".*resnets.*.conv1.conv", ".*resnets.*.conv2.conv"]  # Replace with actual layer names in your model
 
 # 3. Create TenVOO config and wrap the model
 config = TenVOOConfig(
