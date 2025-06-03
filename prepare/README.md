@@ -21,7 +21,7 @@ pip install -r prepare/requirements.txt
 
 ### Evaluation Tools
 
-If you want to evaluate your diffusion models as we do, you also need to download the 
+If you want to evaluate your diffusion models as we do, you also need to download the Med3D-resnet50 from [Med3D](https://github.com/Tencent/MedicalNet), and
 
 
 ## 2. Data Preparation
