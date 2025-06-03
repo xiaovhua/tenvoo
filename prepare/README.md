@@ -21,8 +21,7 @@ pip install -r prepare/requirements.txt
 
 ### Evaluation Tools
 
-If you want to evaluate your diffusion models as we do, you also need to download the Med3D-resnet50 from [Med3D](https://github.com/Tencent/MedicalNet), and
-
+If you want to evaluate your diffusion models as we do, you also need to download the resnet50 checkpoint from [Med3D](https://github.com/Tencent/MedicalNet), and install the [torch-two-sample](https://github.com/josipd/torch-two-sample/) repository by yourself.
 
 ## 2. Data Preparation
 
