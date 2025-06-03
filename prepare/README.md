@@ -19,6 +19,11 @@ or
 pip install -r prepare/requirements.txt
 ```
 
+### Evaluation Tools
+
+If you want to evaluate your diffusion models as we do, you also need to download the 
+
+
 ## 2. Data Preparation
 
 ### 📥 Download
