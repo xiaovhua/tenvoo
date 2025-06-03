@@ -124,6 +124,13 @@ with torch.no_grad():
     for batch in val_loader:
         ...
 
+# 6. (Optional) Save only the TenVOO weights
+state_dict = {
+    name: param.cpu() for name, param in unet.state_dict().items() 
+    if 'tenvoo' in name
+}
+torch.save(state_dict, 'tenvoo_weights.pth')
+
 ```
 
 ## 📊 Results
