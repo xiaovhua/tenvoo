@@ -4,7 +4,7 @@
   <a href="https://arxiv.org/abs/xxxx.xxxxx">
     <img src="https://img.shields.io/badge/Paper-PDF-red?logo=adobeacrobatreader&style=for-the-badge" alt="paper"/>
   </a>
-  <a href="[https://github.com/your_username/your_repo](https://github.com/TUAT-Novice/tenvoo/)">
+  <a href="[https://github.com/TUAT-Novice/tenvoo/](https://github.com/TUAT-Novice/tenvoo)">
     <img src="https://img.shields.io/badge/Code-GitHub-blue?logo=github&style=for-the-badge" alt="code"/>
   </a>
 </p>
