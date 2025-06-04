@@ -13,7 +13,7 @@ from generative.inferers import DiffusionInferer
 from dataset import DDPMDataset, default_transform, GLOB_PATHS
 from peft import (LoConConfig, LoConModel, LokrConfig, LokrModel, LohaConfig,
                   LohaModel, TenVOOConfig, TenVOOModel, TENVOO_LIST)
-from utils import seed_everything
+from utils import seed_everything, save_peft
 from ddpm_unet import DDPM_LAYERS, init_diffusion_unet
 
 
@@ -208,9 +208,9 @@ if __name__ == '__main__':
                 v_loss += valid_loss.detach().item()
                 valid_bar.set_postfix({'loss': v_loss / (valid_step + 1)})
         # save checkpoints
-        torch.save(unet.state_dict(), os.path.join(args.output_dir, f'ep{epoch + 1}.pth'))
+        save_peft(unet, os.path.join(args.output_dir, f'ep{epoch + 1}.pth'), args.ft_mode)
     # save the last checkpoint
-    torch.save(unet.state_dict(), os.path.join(args.output_dir, f'last.pth'))
+    save_peft(unet, os.path.join(args.output_dir, f'last.pth'), args.ft_mode)
 
     # check memory peak
     peak_allocated = torch.cuda.max_memory_allocated() / 1024 ** 2
