@@ -93,14 +93,15 @@ import torch
 from peft import TenVOOConfig, TenVOOModel, TENVOO_LIST
 from utils import peft2nnmodel, save_peft, load_peft
 
-unet_ckpt = /path/to/your/pretrained/ddpm_unet.pth  # Replace with your UNet model path
+model_ckpt = /path/to/your/pretrained/model.pth                          # Replace with your model path
+peft_ckpt = /path/to/save/peft/weights.pth                               # Replace with your path to save or load peft weights
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # 1. Load your base model (must be a compatible 3D model, e.g., UNet3D)
-unet = load_your_unet(unet_ckpt)  
+model = load_your_model(model_ckpt)  
 
 # 2. Define which layers to wrap with TenVOO
-target_modules = [".*resnets.*.conv1.conv", ".*resnets.*.conv2.conv"]  # Replace with actual layer names in your model
+target_modules = [".*resnets.*.conv1.conv", ".*resnets.*.conv2.conv"]    # Replace with actual layer names in your model
 
 # 3. Create TenVOO config and wrap the model
 config = TenVOOConfig(
@@ -111,32 +112,31 @@ config = TenVOOConfig(
     model_mode='l',                  # TenVOO-L (l) or TenVOO-Q (q)
     rank=4                           # LoRA rank (adjust as needed)
 )
-unet = TenVOOModel(config, unet).to(device)
+model = TenVOOModel(config, model).to(device)
 
-# 4. Training loop. You have to set unet.train()
+# 4. Training loop. You have to set model.train()
 for epoch in range(epochs):
-    unet.train()
+    model.train()
     for batch in train_loader:
         ...
         loss.backward()
         optimizer.step()
 
 # # 5. (Optional) Save only the TenVOO weights
-# save_peft(unet, /path/to/save/peft/weights.pth, model_type='tenvoo-l')
+# save_peft(model, peft_ckpt, model_type='tenvoo-l')
 
 # # 6. (Optional) Load the TenVOO weights
-# unet = load_your_unet(unet_ckpt)           # Load the raw unet
-# ......                                     # Wrap your model with TenVOOModel with the same configuration
-# unet = load_peft(unet, args.peft_ckpt)     # Load the peft weight
+# model = load_your_model(model_ckpt)           # Load the raw model
+# ......                                        # Wrap your model with TenVOOModel with the same configuration
+# model = load_peft(model, peft_ckpt)           # Load the peft weight
 
-# 7. Inference: Set unet to evaluation mode (unet.eval()) and wrap it with peft2nnmodel() before running inference.
-unet.eval()
-unet = peft2nnmodel(unet)
-unet.eval()
+# 7. Inference: Set model to evaluation mode (model.eval()) and wrap it with peft2nnmodel() before running inference.
+model.eval()
+model = peft2nnmodel(model)
+model.eval()
 with torch.no_grad():
     for batch in val_loader:
         ...
-
 
 ```
 
