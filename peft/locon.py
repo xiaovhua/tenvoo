@@ -51,7 +51,7 @@ class LoConLayer(PeftLayer):
         self.merge_weights = merge_weights
 
 
-class Linear(nn.Linear, LoConLayer):
+class Linear(LoConLayer, nn.Linear):
     # LoCon implemented in a dense layer
     def __init__(self, in_features: int, out_features: int, bias: bool,  merge_weights: bool = False, rank: int = 16, alpha: float = 0., **kwargs):
 
@@ -103,7 +103,7 @@ class Linear(nn.Linear, LoConLayer):
             return F.linear(x, self.weight, bias=self.bias.to(previous_dtype) if self.bias is not None else None)
 
 
-class Conv3d(nn.Conv3d, LoConLayer):
+class Conv3d(LoConLayer, nn.Conv3d):
     # LoCon implemented in a convolutional layer
     def __init__(self, in_channels: int, out_channels: int, bias: bool, kernel_size: int | list | tuple = 1,
                  stride: int | list | tuple = 1, padding: int | list | tuple = 1, dilation: int | tuple = 1,
