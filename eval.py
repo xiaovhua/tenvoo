@@ -425,6 +425,7 @@ if __name__ == '__main__':
         unet.eval()
         # transform peft model to torch.nn model
         unet = peft2nnmodel(unet)
+        unet.eval()
     print(
         f"The raw UNet has {(total_params / 1000 / 1000):.4}M parameters, while only {(train_params / 1000 / 1000):.4}M ({(train_params / total_params):.4}%) are used for fine-tuning."
     )
