@@ -46,19 +46,23 @@ Please apply for access and download the datasets from their official websites i
 
 - **ADNI & PPMI**: We pre-process the T1-weighted images from ADNI and PPMI following the steps below.
 
-| Tool       | Step       |
-|----------------|----------------|
-| Row 1, Col 1   | SANLM denoising (medium)   |
-| Row 2, Col 1   | Affine Preprocessing   |
-| Row 3, Col 1   | Correct center-of-mass   |
-| Row 4, Col 1   | Affine registration   |
-| Row 5, Col 1   | TPM-based Segmentation & Registration  |
-| Row 6, Col 1   | Global intensity correction |
-| Row 7, Col 1   | SANLM denoising (medium)  |
-| Row 4, Col 1   | Row 4, Col 2   |
-| Row 5, Col 1   | Row 5, Col 2   |
-| Row 6, Col 1   | Row 6, Col 2   |
-| Row 7, Col 1   | Row 7, Col 2   |
+| Step       |
+|----------------|
+| SANLM denoising (first)   |
+| Affine Preprocessing   |
+| Correct center-of-mass   |
+| Affine registration   |
+| TPM-based Segmentation & Registration  |
+| Global intensity correction |
+| SANLM denoising (second)  |
+| Fast Optimized Shooting registration  |
+| LAS |
+| ROI segmentation |
+| 增强血管校正 |
+| AMAP |
+| Final cleanup |
+
+
 
 ---
 
