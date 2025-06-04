@@ -136,10 +136,8 @@ torch.save(state_dict, 'tenvoo_weights.pth')
 
 ## 📊 Results
 
-| Dataset | Method | Params (M) | Dice Score (%) |
-|---------|--------|------------|----------------|
-| Task A  | Ours   | 2.3        | 89.7           |
-| Task B  | Ours   | 3.1        | 91.2           |
+![results](./media/results.png)
+
 
 ## 🤝 Citation
 
