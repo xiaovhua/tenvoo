@@ -51,7 +51,7 @@ def peft2nnmodel(model):
             peft2nnmodel(module)
     return model
 
-def save_peft(model, path, model_type='tenvoo-l'):
+def save_peft(model, path, model_type='tenvoo-l', info=False):
     # define target keys for saving
     model_type = model_type.lower()
     assert model_type in ('lora', 'locon', 'lokr', 'loha', 'tenvoo-l', 'tenvoo-q'), f'Unsupported model_type = {model_type}'
@@ -71,13 +71,15 @@ def save_peft(model, path, model_type='tenvoo-l'):
             for param_name, param in module.named_parameters(recurse=True):
                 full_name = f"{module_name}.{param_name}"
                 if any(k in full_name for k in keys):
-                    print(f"[SAVE]: {full_name} shaped {param.shape}")
+                    if info:
+                        print(f"[SAVE]: {full_name} shaped {param.shape}")
                     state_dict[full_name] = param.detach().cpu()
             # Save buffers (e.g., tenvoo_weights2)
             for buffer_name, buffer in module.named_buffers(recurse=True):
                 full_name = f"{module_name}.{buffer_name}"
                 if any(k in full_name for k in keys):
-                    print(f"[SAVE]: {full_name} shaped {buffer.shape}")
+                    if info:
+                        print(f"[SAVE]: {full_name} shaped {buffer.shape}")
                     state_dict[full_name] = buffer.detach().cpu()
     torch.save(state_dict, path)
 
