@@ -86,7 +86,7 @@ You can follow our example from [`./toy.ipynb`](./toy.ipynb), to understand how 
 
 **Quick Start**
 
-You can easily apply TenVOO to your own 3D models with just a few lines of code:
+You can easily apply TenVOO to your own 3D models with just a few lines of code.
 
 ```python
 import torch
