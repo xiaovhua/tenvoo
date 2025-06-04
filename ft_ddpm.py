@@ -210,9 +210,15 @@ if __name__ == '__main__':
                 v_loss += valid_loss.detach().item()
                 valid_bar.set_postfix({'loss': v_loss / (valid_step + 1)})
         # save checkpoints
-        save_peft(unet, os.path.join(args.output_dir, f'ep{epoch + 1}.pth'), args.ft_mode)
+        if args.ft_mode == 'ff':
+            torch.save(unet.state_dict(), os.path.join(args.output_dir, f'ep{epoch + 1}.pth'))
+        else:
+            save_peft(unet, os.path.join(args.output_dir, f'ep{epoch + 1}.pth'), args.ft_mode)
     # save the last checkpoint
-    save_peft(unet, os.path.join(args.output_dir, f'last.pth'), args.ft_mode)
+    if args.ft_mode == 'ff':
+        torch.save(unet.state_dict(), os.path.join(args.output_dir, f'last.pth'))
+    else:
+        save_peft(unet, os.path.join(args.output_dir, f'last.pth'), args.ft_mode)
 
     # check memory peak
     peak_allocated = torch.cuda.max_memory_allocated() / 1024 ** 2
