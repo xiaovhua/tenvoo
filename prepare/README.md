@@ -48,19 +48,19 @@ Please apply for access and download the datasets from their official websites i
 
 | Step       |
 |----------------|
-| SANLM denoising (first)   |
+| SANLM Denoising (first)   |
 | Affine Preprocessing   |
-| Correct center-of-mass   |
-| Affine registration   |
+| Correct Center-of-mass   |
+| Affine Registration   |
 | TPM-based Segmentation & Registration  |
-| Global intensity correction |
-| SANLM denoising (second)  |
-| Fast Optimized Shooting registration  |
+| Global Intensity Correction |
+| SANLM Denoising (second)  |
+| Fast Optimized Shooting Registration  |
 | LAS |
-| ROI segmentation |
+| ROI Segmentation |
 | Enhanced Blood Vessel Correction |
 | AMAP |
-| Final cleanup |
+| Final Cleanup |
 
 Our pre-processing may be overly aggressive, as we aimed to ensure spatial consistency across ADNI/PPMI and the UK Biobank. The goal is to demonstrate that baseline methods such as LoRA fail even when spatial consistency is maintained. You may consider using an alternative, smoother pre-processing pipeline.
 
