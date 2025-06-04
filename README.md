@@ -136,6 +136,8 @@ torch.save(state_dict, 'tenvoo_weights.pth')
 
 ## 📊 Results
 
+We demonstrate that TenVOO achieves comparable performance to the baseline methods, and notably outperforms them in terms of MS-SSIM (MS) scores.
+
 ![results](./media/results.png)
 
 
