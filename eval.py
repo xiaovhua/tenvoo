@@ -21,7 +21,7 @@ from dataset import DDPMDataset, default_transform, GLOB_PATHS
 from peft import (LoConConfig, LoConModel, LokrConfig, LokrModel, LohaConfig,
                   LohaModel, TenVOOConfig, TenVOOModel, TENVOO_LIST)
 from ddpm_unet import DDPM_LAYERS, init_diffusion_unet
-from utils import seed_everything, load_peft
+from utils import seed_everything, load_peft, peft2nnmodel
 from med3d import resnet50
 
 
@@ -387,7 +387,7 @@ if __name__ == '__main__':
     # torch.backends.cudnn.allow_tf32 = False
     # torch.set_float32_matmul_precision('high')
     if args.ft_mode == 'ff': # full fine-tuning:
-        pass
+        unet.eval()
     else:
         assert args.target_modules is not None, f"Using ft_mode={args.ft_mode}, but got target_modules=None"
         target_modules = [DDPM_LAYERS[t] for t in args.target_modules.split(',')]
@@ -417,8 +417,10 @@ if __name__ == '__main__':
             if p.requires_grad:
                 print(n)
         print("Low-rank layers and their names:")
-    unet = load_peft(unet, args.peft_ckpt)
-    unet.eval()
+        unet = load_peft(unet, args.peft_ckpt)
+        unet.eval()
+        # transform peft model to torch.nn model
+        unet = peft2nnmodel(unet)
     train_params = sum(p.numel() for p in unet.parameters() if p.requires_grad)
     print(
         f"The raw UNet has {(total_params / 1000 / 1000):.4}M parameters, while only {(train_params / 1000 / 1000):.4}M ({(train_params / total_params):.4}%) are used for fine-tuning."
