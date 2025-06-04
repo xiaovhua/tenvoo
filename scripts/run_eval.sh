@@ -22,7 +22,8 @@ scale=1
 output=./results/
 
 ###################################### model settings ######################################
-unet_ckpt=./path/to/fine-tuned/ddpm_unet.pth
+unet_ckpt=./path/to/pretrained/ddpm_unet.pth
+peft_ckpt=./path/to/fine-tuned/peft.pth
 med3d_ckpt=./path/to/med3d_resnet50.pth
 
 ###################################### peft settings ######################################
@@ -39,6 +40,7 @@ python eval.py \
   --scale_ratio $scale \
   --output_dir $output \
   --unet_ckpt $unet_ckpt \
+  --peft_ckpt $peft_ckpt \
   --med3d_ckpt $med3d_ckpt \
   -r $rank \
   --ft_mode=$ft_mode \
