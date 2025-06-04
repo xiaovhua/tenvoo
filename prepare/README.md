@@ -58,7 +58,7 @@ Please apply for access and download the datasets from their official websites i
 | Fast Optimized Shooting registration  |
 | LAS |
 | ROI segmentation |
-| 增强血管校正 |
+| Enhanced Blood Vessel Correction |
 | AMAP |
 | Final cleanup |
 
