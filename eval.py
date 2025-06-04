@@ -20,8 +20,8 @@ from generative.inferers import DiffusionInferer
 from dataset import DDPMDataset, default_transform, GLOB_PATHS
 from peft import (LoConConfig, LoConModel, LokrConfig, LokrModel, LohaConfig,
                   LohaModel, TenVOOConfig, TenVOOModel, TENVOO_LIST)
-from ddpm_unet import DDPM_LAYERS, init_diffusion_unet, load_if
-from utils import seed_everything
+from ddpm_unet import DDPM_LAYERS, init_diffusion_unet
+from utils import seed_everything, load_peft
 from med3d import resnet50
 
 
@@ -309,6 +309,7 @@ if __name__ == '__main__':
     # saving
     parser.add_argument('--output_dir', required=True, type=str, help='path to save the results')
     parser.add_argument('--unet_ckpt', required=True, type=str, help='path to the saved unet checkpoint')
+    parser.add_argument('--peft_ckpt', required=True, type=str, help='path to the saved peft checkpoint')
     parser.add_argument('--med3d_ckpt', required=True, type=str, default='./resnet_50.pth', help='path to the saved medicalnet checkpoint')
 
     # model
@@ -355,7 +356,7 @@ if __name__ == '__main__':
     args.img_size = (1, ) + trainset[0].shape
 
     # model
-    unet = init_diffusion_unet(1).to(device)
+    unet = init_diffusion_unet(1, args.unet_ckpt).to(device)
     if args.scheduler_type == 'ddpm':
         scheduler = DDPMScheduler(
             num_train_timesteps=args.ddpm_steps,
@@ -416,7 +417,7 @@ if __name__ == '__main__':
             if p.requires_grad:
                 print(n)
         print("Low-rank layers and their names:")
-    load_if(args.unet_ckpt, unet)
+    unet = load_peft(unet, args.peft_ckpt)
     unet.eval()
     train_params = sum(p.numel() for p in unet.parameters() if p.requires_grad)
     print(
