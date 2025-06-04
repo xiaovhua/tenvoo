@@ -1,3 +1,4 @@
+from .base_config import PeftLayer
 from .locon import LoConConfig, LoConModel
 from .lokr import LokrConfig, LokrModel
 from .loha import LohaConfig, LohaModel
