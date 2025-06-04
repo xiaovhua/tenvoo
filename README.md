@@ -91,13 +91,15 @@ You can easily apply TenVOO to your own 3D models with just a few lines of code:
 ```python
 import torch
 from peft import TenVOOConfig, TenVOOModel, TENVOO_LIST
+from utils import peft2nnmodel, save_peft, load_peft
 
+unet_ckpt = /path/to/your/pretrained/ddpm_unet.pth  # Replace with your UNet model path
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-# 1. Your base model (must be a compatible 3D model, e.g., UNet3D)
-unet = your_own_unet  # Replace with your UNet model instance
+# 1. Load your base model (must be a compatible 3D model, e.g., UNet3D)
+unet = load_your_unet(unet_ckpt)  
 
-# 2. Define which layers to wrap with TenVOO (e.g., ["down.0.conv", "up.2.conv"])
+# 2. Define which layers to wrap with TenVOO
 target_modules = [".*resnets.*.conv1.conv", ".*resnets.*.conv2.conv"]  # Replace with actual layer names in your model
 
 # 3. Create TenVOO config and wrap the model
@@ -119,18 +121,22 @@ for epoch in range(epochs):
         loss.backward()
         optimizer.step()
 
-# 5. Inference. You have to set unet.eval()
+# # 5. (Optional) Save only the TenVOO weights
+# save_peft(unet, /path/to/save/peft/weights.pth, model_type='tenvoo-l')
+
+# # 6. (Optional) Load the TenVOO weights
+# unet = load_your_unet(unet_ckpt)           # Load the raw unet
+# ......                                     # Wrap your model with TenVOOModel with the same configuration
+# unet = load_peft(unet, args.peft_ckpt)     # Load the peft weight
+
+# 7. Inference: Set unet to evaluation mode (unet.eval()) and wrap it with peft2nnmodel() before running inference.
+unet.eval()
+unet = peft2nnmodel(unet)
 unet.eval()
 with torch.no_grad():
     for batch in val_loader:
         ...
 
-# 6. (Optional) Save only the TenVOO weights
-state_dict = {
-    name: param.cpu() for name, param in unet.state_dict().items() 
-    if 'tenvoo' in name
-}
-torch.save(state_dict, 'tenvoo_weights.pth')
 
 ```
 
