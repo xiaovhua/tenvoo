@@ -134,7 +134,7 @@ class TenVOOLayer(PeftLayer):
         self.merge_weights = merge_weights
 
 
-class Linear(nn.Linear, TenVOOLayer):
+class Linear(TenVOOLayer, nn.Linear):
     # TenVoo implemented in a dense layer, we directly use QuanTA
     def __init__(self, in_features: int, out_features: int, bias: bool,
                  d_in: int = 1, d_out: int = 1,
@@ -464,7 +464,7 @@ class Linear(nn.Linear, TenVOOLayer):
         return self.forward_sum_opposite(x)
 
 
-class Conv3d(nn.Conv3d, TenVOOLayer):
+class Conv3d(TenVOOLayer, nn.Conv3d):
     # TenVoo implemented in a Conv3d layer
     def __init__(self, in_channels: int, out_channels: int, bias: bool,
                  kernel_size: int | list | tuple = 1,
