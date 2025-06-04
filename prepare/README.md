@@ -62,7 +62,7 @@ Please apply for access and download the datasets from their official websites i
 | AMAP |
 | Final cleanup |
 
-
+Our pre-processing may be overly aggressive, as we aimed to ensure spatial consistency across ADNI/PPMI and the UK Biobank. The goal is to demonstrate that baseline methods such as LoRA fail even when spatial consistency is maintained. You may consider using an alternative, smoother pre-processing pipeline.
 
 ---
 
