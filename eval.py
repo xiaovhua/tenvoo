@@ -389,6 +389,7 @@ if __name__ == '__main__':
     # torch.backends.cudnn.allow_tf32 = False
     # torch.set_float32_matmul_precision('high')
     if args.ft_mode == 'ff': # full fine-tuning:
+        unet = init_diffusion_unet(1, args.peft_ckpt).to(device)
         train_params = sum(p.numel() for p in unet.parameters() if p.requires_grad)
         unet.eval()
     else:
