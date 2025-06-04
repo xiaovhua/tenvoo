@@ -109,7 +109,7 @@ def make_kron(w1, w2, scale):
     return rebuild
 
 
-class Linear(nn.Linear, LokrLayer):
+class Linear(LokrLayer, nn.Linear):
     # Lokr implemented in a dense layer
     def __init__(self, in_features: int, out_features: int, bias: bool,  merge_weights: bool = False, rank: int = 16, alpha: float = 0., factor: int = -1, **kwargs):
         nn.Linear.__init__(self, in_features, out_features, bias=bias, **kwargs)
@@ -171,7 +171,7 @@ class Linear(nn.Linear, LokrLayer):
             return F.linear(x, self.weight, bias=self.bias.to(previous_dtype) if self.bias is not None else None)
 
 
-class Conv3d(nn.Conv3d, LokrLayer):
+class Conv3d(LokrLayer, nn.Conv3d):
     # Lokr implemented in a convolutional layer
     def __init__(self, in_channels: int, out_channels: int, bias: bool, kernel_size: int | list | tuple = 1,
                  stride: int | list | tuple = 1, padding: int | list | tuple = 1, dilation: int | tuple = 1,
