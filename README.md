@@ -27,6 +27,7 @@ This repository provides the official implementation of **Tensor Volumetric Oper
 
 ```bash
 .
+├── media/                # Image and video for this repository
 ├── prepare/              # Details for environment setup and data preparation
 ├── peft/                 # PEFT codes for fine-tuning
 ├── scripts/              # Training and evaluation scripts
