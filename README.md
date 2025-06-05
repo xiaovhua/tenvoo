@@ -14,7 +14,7 @@
 ### Congratulations !! Our work is early accepted by **MICCAI 2025** 🎉🎉
 
 
-[video](./media/methods_comparison.gif)
+![video](./media/methods_comparison.gif)
 
 
 ## 🔍 Introduction
