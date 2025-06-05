@@ -428,7 +428,7 @@ if __name__ == '__main__':
         unet = peft2nnmodel(unet)
         unet.eval()
     print(
-        f"The raw UNet has {(total_params / 1000 ** 2):.4}M parameters, while only {(train_params / 1000 ** 2):.4}M ({(train_params / total_params) * 100:.4}%) are used for fine-tuning."
+        f"The raw UNet has {(total_params / 1000 ** 2):.4}M parameters, while only {(train_params / 1000 ** 2):.4}M ({(train_params / total_params * 100):.4}%) are used for fine-tuning."
     )
 
     # encoder from https://github.com/Tencent/MedicalNet
