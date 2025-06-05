@@ -162,8 +162,7 @@ if __name__ == '__main__':
             unet.train()
             # train
             imgs = imgs.to(device)
-            # TODO
-            imgs = imgs.as_tensor()
+            # imgs = imgs.as_tensor()
             with autocast(enabled=args.use_amp, dtype=torch.float16):
                 noise = torch.randn_like(imgs).to(device)
                 timesteps = torch.randint(
