@@ -10,7 +10,7 @@
 </p>
 
 
-# ![video](./media/methods_comparison.gif)
+<!-- ![video](./media/methods_comparison.gif) -->
 
 
 ### This repository contains the official implementation of **"Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks"**.
