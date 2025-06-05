@@ -9,12 +9,13 @@
   </a>
 </p>
 
+
+![video](./media/methods_comparison.gif)
+
+
 ### This repository contains the official implementation of **"Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks"**.
 
 ### Congratulations !! Our work is early accepted by **MICCAI 2025** 🎉🎉
-
-
-![video](./media/methods_comparison.gif)
 
 
 ## 🔍 Introduction
