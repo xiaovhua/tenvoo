@@ -130,7 +130,7 @@ for epoch in range(epochs):
 # ......                                        # Wrap your model with TenVOOModel with the same configuration
 # model = load_peft(model, peft_ckpt)           # Load the peft weight
 
-# 7. Inference: Set model to evaluation mode (model.eval()) and wrap it with peft2nnmodel() before running inference.
+# 7. Inference: Set model to evaluation mode (model.eval()) and wrap it with peft2nnmodel() before running inference
 model.eval()
 model = peft2nnmodel(model)
 model.eval()
