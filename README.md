@@ -20,6 +20,8 @@
 
 ## 🔍 Introduction
 
+![model](./media/model.png)
+
 This repository provides the official implementation of **Tensor Volumetric Operator (TenVOO)**, a novel parameter-efficient fine-tuning (PEFT) method specifically designed for 3D convolutional networks. TenVOO enables efficient adaptation of large-scale 3D models while preserving spatial interactions, and demonstrates strong performance across various Magnetic Resonance Imaging (MRI) generation tasks.
 
 **Key highlights:**
