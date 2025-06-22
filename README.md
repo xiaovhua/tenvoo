@@ -101,7 +101,7 @@ from peft import TenVOOConfig, TenVOOModel, TENVOO_LIST
 from utils import peft2nnmodel, save_peft, load_peft
 
 model_ckpt = /path/to/your/pretrained/model.pth                          # Replace with your model path
-peft_ckpt = /path/to/save/peft/weights.pth                               # Replace with your path to save or load peft weights
+peft_ckpt = /path/to/save/peft/weights.pth                               # Replace with your path to save peft weights
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # 1. Load your base model (must be a compatible 3D model, e.g., UNet3D)
