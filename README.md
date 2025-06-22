@@ -158,6 +158,7 @@ We demonstrate that TenVOO achieves comparable performance to the baseline metho
 
 If you find this work useful, please consider citing our paper:
 
+<!--
 ```bibtex
 @inproceedings{yourbibtex2025,
 title={Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks},
@@ -166,6 +167,7 @@ booktitle={International Conference on Medical Image Computing and Computer-Assi
 year={2025}
 }
 ```
+-->
 
 ## 📬 Contact
 
