@@ -65,7 +65,7 @@ Please refer to [`./prepare`](./prepare)
 
 ### 3. Train the model
 
-To train you MONAI DDPM, you can modify the config in  [`./scripts/run_pretrain_ddpm.sh`](./scripts/run_pretrain_ddpm.sh), then run:
+To train your MONAI DDPM, you can modify the config in  [`./scripts/run_pretrain_ddpm.sh`](./scripts/run_pretrain_ddpm.sh), then run:
 
 ```bash
 bash scripts/run_pretrain_ddpm.sh
