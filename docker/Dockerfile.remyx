@@ -1,0 +1,135 @@
+# syntax=docker/dockerfile:1.4
+FROM pytorch/pytorch:2.2.0-cuda12.1-cudnn8-devel
+
+ENV CUDA_HOME=/usr/local/cuda-12.1
+ENV DEBIAN_FRONTEND=noninteractive
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/xiaovhua/tenvoo.git .
+
+RUN pip install --no-cache-dir -r prepare/requirements.txt && \
+    pip install --no-cache-dir \
+    gdown \
+    "git+https://github.com/josipd/torch-two-sample.git"
+
+# Fix for Python 3.9+ where OrderedDict was moved from typing to collections
+RUN sed -i 's/from typing import OrderedDict/from collections import OrderedDict/' eval.py
+
+COPY --chmod=755 <<'PYTHON' /app/generate_data.py
+import numpy as np
+import nibabel as nib
+import os
+
+def create_dummy_nifti(output_path, shape=(32, 32, 32)):
+    """Creates a dummy NIfTI file."""
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    data = np.random.rand(*shape).astype(np.float32)
+    affine = np.eye(4)
+    nii_img = nib.Nifti1Image(data, affine)
+    nib.save(nii_img, output_path)
+
+# Generate 10 samples for pre-training and fine-tuning to ensure train/val splits are not empty
+for i in range(10):
+    # Data structured for 'ukb' dataset type in pretrain_ddpm.py
+    ukb_path = f"/app/data/ukb_dummy/{i}/sub/ses/T1_brain_to_MNI.nii.gz"
+    create_dummy_nifti(ukb_path)
+
+    # Data structured for 'adni' dataset type in ft_ddpm.py and eval.py
+    adni_path = f"/app/data/adni_dummy/{i}/sub/ses/scan/image.nii.gz"
+    create_dummy_nifti(adni_path)
+
+print("Dummy data generated for 'ukb' and 'adni' types.")
+PYTHON
+
+COPY --chmod=755 <<'BASH' /app/entrypoint.sh
+#!/usr/bin/env bash
+set -euo pipefail
+
+# --- Configuration ---
+CHECKPOINT_DIR="/app/checkpoints"
+RESULTS_DIR="/app/results"
+
+UKB_DATA_DIR="/app/data/ukb_dummy"
+ADNI_DATA_DIR="/app/data/adni_dummy"
+
+MED3D_CKPT_PATH="${CHECKPOINT_DIR}/resnet_50.pth"
+UNET_CKPT_PATH="${CHECKPOINT_DIR}/unet_pretrained.pth"
+PEFT_CKPT_PATH="${CHECKPOINT_DIR}/adni-tenvoo-l/last.pth"
+
+# Use smaller resolution for faster execution
+DUMMY_RESOLUTION="[(32,32,32)]"
+FT_TARGET_MODULES="conv1,conv2"
+
+# --- Setup Directories ---
+mkdir -p "${CHECKPOINT_DIR}" "${RESULTS_DIR}"
+
+# --- 1. Generate Dummy Data ---
+echo ">>> 1. Generating dummy MRI data..."
+python /app/generate_data.py
+
+# --- 2. Download Med3D Checkpoint ---
+echo ">>> 2. Downloading Med3D checkpoint for evaluation..."
+# The Google Drive file ID for resnet_50.pth is from the project's source code (eval.py)
+gdown --id 1399AsrYpQDi1vq6ciKRQkfknLsQQyigM -O "${MED3D_CKPT_PATH}"
+
+# --- 3. Run Mock Pre-training to get a UNet checkpoint ---
+echo ">>> 3. Pre-training UNet for 1 epoch to generate a base checkpoint..."
+python pretrain_ddpm.py \
+    --dataset_name ukb \
+    --dataset_root "${UKB_DATA_DIR}" \
+    --mri_resolution "${DUMMY_RESOLUTION}" \
+    --output_dir "${CHECKPOINT_DIR}" \
+    --n_epochs 1 \
+    --batch_size 1 \
+    --accu_steps 1 \
+    --num_workers 2
+
+# The script saves checkpoints like 'ddpm-ep-1.pth'. Rename for consistency.
+mv "${CHECKPOINT_DIR}"/ddpm-ep-1.pth "${UNET_CKPT_PATH}"
+echo ">>> Base UNet checkpoint saved to ${UNET_CKPT_PATH}"
+
+# --- 4. Run Mock Fine-tuning to get a PEFT checkpoint ---
+echo ">>> 4. Fine-tuning with TenVOO for 1 epoch to generate a PEFT checkpoint..."
+python ft_ddpm.py \
+    --dataset_name adni \
+    --dataset_root "${ADNI_DATA_DIR}" \
+    --mri_resolution "${DUMMY_RESOLUTION}" \
+    --output_dir "${CHECKPOINT_DIR}" \
+    --unet_ckpt "${UNET_CKPT_PATH}" \
+    --n_epochs 1 \
+    --batch_size 1 \
+    --accu_steps 1 \
+    --ft_mode tenvoo-l \
+    --rank 4 \
+    --target_modules "${FT_TARGET_MODULES}" \
+    --num_workers 2
+
+echo ">>> PEFT checkpoint saved in ${CHECKPOINT_DIR}/adni-tenvoo-l/"
+
+# --- 5. Run Evaluation as the Final Demo ---
+echo ">>> 5. Running evaluation script..."
+python eval.py \
+    --dataset_name adni \
+    --dataset_root "${ADNI_DATA_DIR}" \
+    --mri_resolution "${DUMMY_RESOLUTION}" \
+    --output_dir "${RESULTS_DIR}" \
+    --unet_ckpt "${UNET_CKPT_PATH}" \
+    --peft_ckpt "${PEFT_CKPT_PATH}" \
+    --med3d_ckpt "${MED3D_CKPT_PATH}" \
+    -r 4 \
+    --ft_mode tenvoo-l \
+    --target_modules "${FT_TARGET_MODULES}" \
+    --num_samples 2 \
+    --batch_size 1 \
+    --num_workers 2
+
+echo ">>> Demo finished. Evaluation results are in ${RESULTS_DIR}"
+BASH
+
+ENTRYPOINT ["/app/entrypoint.sh"]
