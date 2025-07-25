@@ -1,10 +1,10 @@
 # Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks
 
 <p align="center">
-  <a href="https://arxiv.org/abs/xxxx.xxxxx">
+  <a href="[https://arxiv.org/abs/2507.18112](https://arxiv.org/abs/2507.18112)">
     <img src="https://img.shields.io/badge/Paper-PDF-red?logo=adobeacrobatreader&style=for-the-badge" alt="paper"/>
   </a>
-  <a href="[https://github.com/TUAT-Novice/tenvoo/](https://github.com/xiaovhua/tenvoo)">
+  <a href="[https://github.com/xiaovhua/tenvoo](https://github.com/xiaovhua/tenvoo)">
     <img src="https://img.shields.io/badge/Code-GitHub-blue?logo=github&style=for-the-badge" alt="code"/>
   </a>
 </p>
