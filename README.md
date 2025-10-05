@@ -2,17 +2,15 @@
 
 <p align="center">
   <a href="https://papers.miccai.org/miccai-2025/0666-Paper3932.html">
-    <img src="https://img.shields.io/badge/Paper-arXiv-b31b1b?logo=arXiv&style=for-the-badge" alt="paper"/>
+    <img src="https://img.shields.io/static/v1?label=PAPER&message=&style=for-the-badge&logo=arXiv&logoColor=white&labelColor=2f2f2f&color=b31b1b" alt="paper"/>
   </a>
   <a href="https://arxiv.org/abs/2507.18112">
-    <img src="https://img.shields.io/badge/arXiv-2507.18112-b31b1b?logo=arXiv&style=for-the-badge" alt="arXiv"/>
+    <img src="https://img.shields.io/static/v1?label=ARXIV&message=&style=for-the-badge&logo=arXiv&logoColor=white&labelColor=2f2f2f&color=b31b1b" alt="arXiv"/>
   </a>
   <a href="https://github.com/xiaovhua/tenvoo">
     <img src="https://img.shields.io/badge/Code-GitHub-blue?logo=github&style=for-the-badge" alt="code"/>
   </a>
 </p>
-
-https://papers.miccai.org/miccai-2025/0666-Paper3932.html
 
 
 <!-- ![video](./media/methods_comparison.gif) -->
