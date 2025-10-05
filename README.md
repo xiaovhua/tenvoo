@@ -1,13 +1,29 @@
 # Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks
 
-<p align="center">
+<!-- <p align="center">
   <a href="https://arxiv.org/abs/2507.18112">
     <img src="https://img.shields.io/badge/Paper-PDF-red?logo=adobeacrobatreader&style=for-the-badge" alt="paper"/>
   </a>
   <a href="https://github.com/xiaovhua/tenvoo">
     <img src="https://img.shields.io/badge/Code-GitHub-blue?logo=github&style=for-the-badge" alt="code"/>
   </a>
+</p> -->
+
+<p align="center">
+  <!-- Paper -> 新的 MICCAI 链接 -->
+  <a href="https://papers.miccai.org/miccai-2025/0666-Paper3932.html">
+    <img src="https://img.shields.io/badge/Paper-arXiv-b31b1b?logo=arXiv&style=for-the-badge" alt="paper"/>
+  </a>
+  <!-- 独立 arXiv 徽章 -> 原 arXiv 链接 -->
+  <a href="https://arxiv.org/abs/2507.18112">
+    <img src="https://img.shields.io/badge/arXiv-2507.18112-b31b1b?logo=arXiv&style=for-the-badge" alt="arXiv"/>
+  </a>
+  <a href="https://github.com/xiaovhua/tenvoo">
+    <img src="https://img.shields.io/badge/Code-GitHub-blue?logo=github&style=for-the-badge" alt="code"/>
+  </a>
 </p>
+
+https://papers.miccai.org/miccai-2025/0666-Paper3932.html
 
 
 <!-- ![video](./media/methods_comparison.gif) -->
