@@ -168,6 +168,18 @@ If you find this work useful, please consider citing our paper:
   year={2025},
   url={https://doi.org/10.48550/arXiv.2507.18112}
 }
+
+@InProceedings{LiBin_ParameterEfficient_MICCAI2025,
+        author = { Li, Binghua AND Chang, Ziqing AND Liang, Tong AND Li, Chao AND Tanaka, Toshihisa AND Aoki, Shigeki AND Zhao, Qibin AND Sun, Zhe},
+        title = { { Parameter-Efficient Fine-Tuning of 3D DDPM for MRI Image Generation Using Tensor Networks } },
+        booktitle = {proceedings of Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},
+        year = {2025},
+        publisher = {Springer Nature Switzerland},
+        volume = {LNCS 15963},
+        month = {September},
+        page = {382 -- 392}
+}
+
 ```
 
 ## 📬 Contact
